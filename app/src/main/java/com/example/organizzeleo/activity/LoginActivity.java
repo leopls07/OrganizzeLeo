@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.example.organizzeleo.R;
 import com.example.organizzeleo.config.ConfiguracaoFirebase;
 import com.example.organizzeleo.model.Usuario;
+import com.example.organizzeleo.navigation.NavigationActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -148,7 +149,7 @@ public class LoginActivity extends AppCompatActivity {
 
                     public void abrirTelaPrincipal(){
 
-                        startActivity(new Intent(this,PrincipalActivity.class));
+                        startActivity(new Intent(this, NavigationActivity.class));
                         //finish();
 
                     }

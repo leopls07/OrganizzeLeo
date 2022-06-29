@@ -10,6 +10,7 @@ import com.example.organizzeleo.activity.CadastroActivity;
 import com.example.organizzeleo.activity.LoginActivity;
 import com.example.organizzeleo.activity.PrincipalActivity;
 import com.example.organizzeleo.config.ConfiguracaoFirebase;
+import com.example.organizzeleo.navigation.NavigationActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.heinrichreimersoftware.materialintro.app.IntroActivity;
 import com.heinrichreimersoftware.materialintro.slide.FragmentSlide;
@@ -106,7 +107,7 @@ public class MainActivity extends IntroActivity {
 
     public void abrirTelaPrincipal(){
 
-        startActivity(new Intent(this, PrincipalActivity.class));
+        startActivity(new Intent(this, NavigationActivity.class));
 
 
     }
