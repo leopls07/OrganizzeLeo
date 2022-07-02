@@ -1,4 +1,4 @@
-package com.example.organizzeleo;
+package com.example.organizzeleo.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.organizzeleo.R;
 import com.example.organizzeleo.activity.CadastroActivity;
 import com.example.organizzeleo.activity.LoginActivity;
 import com.example.organizzeleo.activity.PrincipalActivity;

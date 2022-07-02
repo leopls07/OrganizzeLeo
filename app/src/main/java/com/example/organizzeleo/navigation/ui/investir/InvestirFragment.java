@@ -1,4 +1,4 @@
-package com.example.organizzeleo.navigation.ui.tools;
+package com.example.organizzeleo.navigation.ui.investir;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -15,17 +15,17 @@ import androidx.lifecycle.ViewModelProviders;
 import com.example.organizzeleo.R;
 
 
-public class ToolsFragment extends Fragment {
+public class InvestirFragment extends Fragment {
 
-    private ToolsViewModel toolsViewModel;
+    private GalleryViewModel galleryViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        toolsViewModel =
-                ViewModelProviders.of(this).get(ToolsViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_tools, container, false);
-        final TextView textView = root.findViewById(R.id.text_tools);
-        toolsViewModel.getText().observe(this, new Observer<String>() {
+        galleryViewModel =
+                ViewModelProviders.of(this).get(GalleryViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_gallery, container, false);
+        final TextView textView = root.findViewById(R.id.text_gallery);
+        galleryViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

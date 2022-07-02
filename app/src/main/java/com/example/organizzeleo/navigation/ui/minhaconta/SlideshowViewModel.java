@@ -1,4 +1,4 @@
-package com.example.organizzeleo.navigation.ui.slideshow;
+package com.example.organizzeleo.navigation.ui.minhaconta;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
