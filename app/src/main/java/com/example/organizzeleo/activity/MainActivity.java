@@ -19,12 +19,12 @@ import com.heinrichreimersoftware.materialintro.slide.SimpleSlide;
 
 public class MainActivity extends IntroActivity {
 
-        FirebaseAuth autenticacao;
+    FirebaseAuth autenticacao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       //setContentView(R.layout.activity_main);
+        //setContentView(R.layout.activity_main);
 
         verificarUsuarioLogado();
 
@@ -33,41 +33,27 @@ public class MainActivity extends IntroActivity {
         setButtonCtaVisible(false);
 
 
-
-        addSlide(new SimpleSlide.Builder()
-                        .title("Bem vindo ao Organizze versão leopls")
-                        .description("Feito a mão pelo humilde aprendiz")
-                        .image(R.drawable.um)
-                        .background(android.R.color.white)
+        addSlide(new FragmentSlide.Builder()
+                .background(R.color.startColorBackgroumd)
+                .fragment(R.layout.slide_um)
                 .build()
 
         );
 
 
 
-        addSlide(new SimpleSlide.Builder()
-                .title("Observação")
-                .description("Se algo nao funcionar, se vira ")
-                .image(R.drawable.dois)
-                .background(android.R.color.white)
+        addSlide(new FragmentSlide.Builder()
+                .background(R.color.startColorBackgroumd)
+                .fragment(R.layout.slide_dois)
                 .build()
         );
 
-        addSlide(new SimpleSlide.Builder()
-                    .title("Tres")
-                    .description("treis")
-                    .image(R.drawable.tres)
-                    .background(android.R.color.white)
-                    .build()
-        );
-
-        addSlide(new SimpleSlide.Builder()
-                .title("QUATRO")
-                .description("quato")
-                .image(R.drawable.quatro)
-                .background(android.R.color.white)
+        addSlide(new FragmentSlide.Builder()
+                .background(R.color.startColorBackgroumd)
+                .fragment(R.layout.slide_tres)
                 .build()
         );
+
 
         addSlide(new FragmentSlide.Builder()
                 .background(R.color.startColorBackgroumd)
@@ -100,7 +86,7 @@ public class MainActivity extends IntroActivity {
         autenticacao = ConfiguracaoFirebase.getAutenticacao();
         if(autenticacao.getCurrentUser() != null){
 
-           abrirTelaPrincipal();
+            abrirTelaPrincipal();
 
         }
     }
