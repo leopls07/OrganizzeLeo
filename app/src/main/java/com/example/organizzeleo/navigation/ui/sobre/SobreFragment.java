@@ -14,6 +14,8 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.organizzeleo.R;
 
+import mehdi.sakout.aboutpage.AboutPage;
+
 
 public class SobreFragment extends Fragment {
 
@@ -21,16 +23,17 @@ public class SobreFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        shareViewModel =
-                ViewModelProviders.of(this).get(ShareViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_share, container, false);
-        final TextView textView = root.findViewById(R.id.text_share);
-        shareViewModel.getText().observe(this, new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
-        return root;
+
+
+        String descricao = "Somos jovens desenvolvedores e este é o nosso primeiro projeto";
+
+    return new AboutPage(getActivity())
+            .setImage(R.drawable.logomenor)
+            .setDescription(descricao)
+            .addGroup("Entre em contato conosco")
+            .addEmail("AvetaSoftware@gmail.com","Email de contato")
+            .addGroup("Redes sociais")
+            .addInstagram("avetasoftwares","Visite nossa página")
+            .create();
     }
 }

@@ -34,6 +34,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth:16.1.0'
     implementation 'com.heinrichreimersoftware:material-intro:2.0.0'
     implementation 'com.google.android.material:material:1.6.1'
+    implementation 'io.github.medyo:android-about-page:2.0.0'
 
 
 }
