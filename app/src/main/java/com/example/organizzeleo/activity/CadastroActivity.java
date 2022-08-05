@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.example.organizzeleo.R;
 import com.example.organizzeleo.config.ConfiguracaoFirebase;
+import com.example.organizzeleo.helper.Base64Custom;
 import com.example.organizzeleo.model.Usuario;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -104,7 +105,7 @@ public class CadastroActivity extends AppCompatActivity {
 
     public void cadastrarUsuario(){
 
-        autenticacao = ConfiguracaoFirebase.getAutenticacao();
+        autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
 
         autenticacao.createUserWithEmailAndPassword(
                 usuario.getEmail(),usuario.getSenha()
@@ -112,10 +113,12 @@ public class CadastroActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
-                    Toast.makeText(CadastroActivity.this,
-                            "Usuario criado com sucesso",
-                            Toast.LENGTH_SHORT
-                            ).show();
+
+                    String idUsuario = Base64Custom.codificarBase64(usuario.getEmail());
+                    usuario.setIdUsuario(idUsuario);
+                    usuario.salvar();
+
+
                     finish();
 
                 }else{

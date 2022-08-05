@@ -111,7 +111,7 @@ public class LoginActivity extends AppCompatActivity {
 
                     public void validarLogin(){
 
-                    autenticacao = ConfiguracaoFirebase.getAutenticacao();
+                    autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
                     autenticacao.signInWithEmailAndPassword(usuario.getEmail(),
                             usuario.getSenha()
                     ).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
