@@ -33,7 +33,7 @@ public class SobreFragment extends Fragment {
             .addGroup("Entre em contato conosco")
             .addEmail("AvetaSoftware@gmail.com","Email de contato")
             .addGroup("Redes sociais")
-            .addInstagram("avetasoftwares","Visite nossa página")
+            .addInstagram("avetasoftware","Visite nossa página")
             .create();
     }
 }
