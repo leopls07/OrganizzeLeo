@@ -119,6 +119,8 @@ public class CadastroActivity extends AppCompatActivity {
                     usuario.salvar();
 
 
+                    Toast.makeText(getApplicationContext(),"Cadastrado com sucesso, vá para login",Toast.LENGTH_SHORT).show();
+
                     finish();
 
                 }else{
