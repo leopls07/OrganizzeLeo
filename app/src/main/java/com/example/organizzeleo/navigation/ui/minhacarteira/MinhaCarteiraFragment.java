@@ -20,26 +20,20 @@ public class MinhaCarteiraFragment extends Fragment {
 
     private Usuario usuario;
 
-    private HomeViewModel homeViewModel;
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        homeViewModel =
-                ViewModelProviders.of(this).get(HomeViewModel.class);
         View root = inflater.inflate(R.layout.fragment_home, container, false);
 
-        homeViewModel.getText().observe(this, new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
 
 
-            }
-        });
+
+
+
+
+
+
         return root;
-
-
-
-
-
+        }
     }
-}

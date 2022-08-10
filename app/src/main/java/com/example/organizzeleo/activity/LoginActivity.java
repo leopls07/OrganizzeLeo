@@ -120,6 +120,7 @@ public class LoginActivity extends AppCompatActivity {
                             if (task.isSuccessful()){
 
                                 abrirTelaPrincipal();
+                                finish();
 
                             }else{
 
