@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
@@ -20,6 +21,8 @@ import com.example.organizzeleo.activity.MainActivity;
 import com.example.organizzeleo.config.ConfiguracaoFirebase;
 import com.example.organizzeleo.helper.Base64Custom;
 import com.example.organizzeleo.model.Usuario;
+import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -30,15 +33,13 @@ import com.google.firebase.database.ValueEventListener;
 
 public class MinhaContaFragment extends Fragment {
 
-
     private TextView textoNome,textoEmail;
-
     private Button botaoDeslogar;
 
-    FirebaseAuth deslogar;
 
-    DatabaseReference firebaseRef = ConfiguracaoFirebase.getFirebaseDatabase();
 
+        private FirebaseAuth deslogar;
+        private DatabaseReference firebaseRef = ConfiguracaoFirebase.getFirebaseDatabase();
 
     public MinhaContaFragment() {
 
@@ -91,9 +92,13 @@ public class MinhaContaFragment extends Fragment {
         });
 
 
+
+
+
         return view;
 
     }
+
 
 
 }

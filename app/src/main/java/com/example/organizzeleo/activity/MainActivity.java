@@ -8,6 +8,8 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.organizzeleo.R;
 import com.example.organizzeleo.activity.CadastroActivity;
@@ -15,6 +17,8 @@ import com.example.organizzeleo.activity.LoginActivity;
 import com.example.organizzeleo.activity.PrincipalActivity;
 import com.example.organizzeleo.config.ConfiguracaoFirebase;
 import com.example.organizzeleo.navigation.NavigationActivity;
+import com.example.organizzeleo.navigation.ui.minhaconta.MinhaContaFragment;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 import com.heinrichreimersoftware.materialintro.app.IntroActivity;
 import com.heinrichreimersoftware.materialintro.slide.FragmentSlide;
@@ -22,9 +26,10 @@ import com.heinrichreimersoftware.materialintro.slide.SimpleSlide;
 
 public class MainActivity extends IntroActivity {
 
-    FirebaseAuth autenticacao;
-    Animation animation;
+    private FirebaseAuth autenticacao;
+    private Animation animation;
    // Button botaoCadastro;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -109,6 +114,9 @@ public class MainActivity extends IntroActivity {
 
 
     }
+
+
+
 
 
 }

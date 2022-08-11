@@ -22,7 +22,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginBottom="16dp"
             android:layout_weight="1"
-            android:text="R$6000,00"
+            android:text="R$0,00"
             android:textColor="@android:color/white"
             android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -70,6 +70,7 @@
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -81,6 +82,7 @@
         app:placeholderTextAppearance="@style/TextAppearance.AppCompat.Body1">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/campoSaldo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableLeft="@drawable/bitocoin"
@@ -88,5 +90,18 @@
             android:hint="Novo Saldo"
             android:inputType="number" />
     </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/botaoSalvarSaldo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="48dp"
+        android:background="@drawable/botao_radius_laranja"
+        android:text="Salvar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
