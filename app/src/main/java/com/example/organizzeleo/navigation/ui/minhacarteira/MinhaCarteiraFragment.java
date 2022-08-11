@@ -15,8 +15,15 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.organizzeleo.R;
+import com.example.organizzeleo.config.ConfiguracaoFirebase;
+import com.example.organizzeleo.helper.Base64Custom;
 import com.example.organizzeleo.model.Usuario;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
 
 
 public class MinhaCarteiraFragment extends Fragment {
@@ -24,13 +31,44 @@ public class MinhaCarteiraFragment extends Fragment {
     private Usuario usuario;
 
     private TextInputEditText campoSaldo;
-    private TextView textoSaldo;
+    private TextView textoSaldo,textoNome;
     private Button botaoSalvar;
+    private DatabaseReference firebaseRef = ConfiguracaoFirebase.getFirebaseDatabase();
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
+
+        textoNome = view.findViewById(R.id.textNomeMinhaCarteira);
+
+        FirebaseAuth autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
+        String email = autenticacao.getCurrentUser().getEmail();
+
+        String idUsuario = Base64Custom.codificarBase64( email );
+        DatabaseReference usuarioRef = firebaseRef.child("usuarios").child(idUsuario);
+
+        usuarioRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                Usuario usuario = snapshot.getValue(Usuario.class);
+
+
+
+                textoNome.setText("Olá, "+usuario.getNome());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
+
+
+
 
 
 
