@@ -57,6 +57,8 @@ public class MinhaCarteiraFragment extends Fragment {
 
 
                 textoNome.setText("Olá, "+usuario.getNome());
+                usuario.setSaldo(campoSaldo.getText().toString());
+
             }
 
             @Override
@@ -80,13 +82,17 @@ public class MinhaCarteiraFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
+
+
                 String valorSaldo = campoSaldo.getText().toString();
 
                 if(valorSaldo == null || valorSaldo == "" || valorSaldo.isEmpty()){
                     Toast.makeText(getContext(),"Digite um Saldo Primeiro",Toast.LENGTH_SHORT).show();
+                    //salvarSaldo();
                 }else{
                     textoSaldo.setText("R$"+valorSaldo);
                     Toast.makeText(getContext(),"Saldo alterado com sucesso",Toast.LENGTH_SHORT).show();
+
                 }
 
             }
@@ -97,4 +103,9 @@ public class MinhaCarteiraFragment extends Fragment {
 
         return view;
         }
+
+
+
+
+
     }

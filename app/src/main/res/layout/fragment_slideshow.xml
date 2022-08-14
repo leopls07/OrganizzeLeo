@@ -27,7 +27,7 @@
     </FrameLayout>
 
     <Button
-        android:id="@+id/BTConta_Excluir"
+        android:id="@+id/ButtonExcluir"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="32dp"
@@ -54,7 +54,7 @@
         android:onClick="Deslogar"
         android:text="Encerrar sessão"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/BTConta_Excluir"
+        app:layout_constraintBottom_toTopOf="@+id/ButtonExcluir"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"

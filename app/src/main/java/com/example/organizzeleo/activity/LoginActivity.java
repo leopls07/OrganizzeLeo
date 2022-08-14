@@ -17,6 +17,7 @@ import com.example.organizzeleo.R;
 import com.example.organizzeleo.config.ConfiguracaoFirebase;
 import com.example.organizzeleo.model.Usuario;
 import com.example.organizzeleo.navigation.NavigationActivity;
+import com.example.organizzeleo.navigation.ui.minhaconta.MinhaContaFragment;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -71,6 +72,9 @@ public class LoginActivity extends AppCompatActivity {
 
                         String textoSenha = campoSenha.getText().toString();
                         String textoEmail = campoEmail.getText().toString();
+
+                        Intent intentSenha = new Intent(getApplicationContext(), MinhaContaFragment.class);
+                        intentSenha.putExtra("Senha",textoSenha);
 
 
                             if (!textoEmail.isEmpty()){

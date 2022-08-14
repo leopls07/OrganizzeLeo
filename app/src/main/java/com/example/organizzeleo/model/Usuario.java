@@ -22,6 +22,14 @@ public class Usuario {
                 .setValue(this);
     }
 
+    public String getSaldo() {
+        return saldo;
+    }
+
+    public void setSaldo(String saldo) {
+        this.saldo = saldo;
+    }
+
     @Exclude
     public String getIdUsuario() {
         return idUsuario;
@@ -47,7 +55,6 @@ public class Usuario {
         this.email = email;
     }
 
-    @Exclude
     public String getSenha() {
         return senha;
     }
