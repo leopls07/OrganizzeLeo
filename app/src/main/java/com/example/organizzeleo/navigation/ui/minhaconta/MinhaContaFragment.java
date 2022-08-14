@@ -111,7 +111,10 @@ public class MinhaContaFragment extends Fragment {
                         deslogar = ConfiguracaoFirebase.getFirebaseAutenticacao();
                         deslogar.signOut();
                         Toast.makeText(getContext(), "Deslogado com sucesso", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(getContext(), MainActivity.class));
+                        Intent intent = new Intent(getContext(),MainActivity.class);
+                        intent.addFlags(intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        intent.addFlags(intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(intent);
                     }
                 });
                 dialog.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
