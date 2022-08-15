@@ -1,5 +1,7 @@
 package com.example.organizzeleo.navigation.ui.minhacarteira;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -82,19 +84,37 @@ public class MinhaCarteiraFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
+                AlertDialog.Builder dialog = new AlertDialog.Builder(getActivity());
+                        dialog.setTitle("Deseja alterar seu saldo?");
+                        dialog.setMessage("Saldo atual será substituido");
+                    dialog.setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+
+                            String valorSaldo = campoSaldo.getText().toString();
+
+                            if(valorSaldo == null || valorSaldo == "" || valorSaldo.isEmpty()){
+                                Toast.makeText(getContext(),"Digite um Saldo Primeiro",Toast.LENGTH_SHORT).show();
+                                //salvarSaldo();
+                            }else{
+                                textoSaldo.setText("R$"+valorSaldo);
+                                Toast.makeText(getContext(),"Saldo alterado com sucesso",Toast.LENGTH_SHORT).show();
+
+                            }
 
 
-                String valorSaldo = campoSaldo.getText().toString();
+                        }
+                    });
 
-                if(valorSaldo == null || valorSaldo == "" || valorSaldo.isEmpty()){
-                    Toast.makeText(getContext(),"Digite um Saldo Primeiro",Toast.LENGTH_SHORT).show();
-                    //salvarSaldo();
-                }else{
-                    textoSaldo.setText("R$"+valorSaldo);
-                    Toast.makeText(getContext(),"Saldo alterado com sucesso",Toast.LENGTH_SHORT).show();
+                    dialog.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    }) ;
 
-                }
 
+                    dialog.show();
             }
         });
 
