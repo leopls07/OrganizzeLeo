@@ -25,15 +25,19 @@ public class SobreFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
 
 
-        String descricao = "Somos jovens desenvolvedores e este é o nosso primeiro projeto";
+        String descricao = "Somos a aveta Software e esta é a freenance. \n \n " +
+                "Com o objetivo de facilitar o aprendizado no mundo dos investimentos.  \n" +
+                "Surgiu a ideia de que se criasse um aplicativo que simulasse-os.  \n" +
+                "Assim fazendo o ensino ser prático e sem riscos";
 
     return new AboutPage(getActivity())
-            .setImage(R.drawable.logomenor)
             .setDescription(descricao)
+            .setImage(R.drawable.logomenor)
             .addGroup("Entre em contato conosco")
             .addEmail("AvetaSoftware@gmail.com","Email de contato")
             .addGroup("Redes sociais")
             .addInstagram("avetasoftware","Visite nossa página")
+            .addGitHub("leopls07/OrganizzeLeo","GitHub do nosso projeto!")
             .create();
     }
 }
