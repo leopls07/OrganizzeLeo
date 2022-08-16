@@ -57,6 +57,18 @@
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/logonovafreenance" />
+
     <TextView
         android:id="@+id/textView28"
         android:layout_width="0dp"
@@ -88,7 +100,8 @@
             android:drawableLeft="@drawable/bitocoin"
             android:drawablePadding="5dp"
             android:hint="Novo Saldo"
-            android:inputType="number|numberDecimal" />
+            android:inputType="number|numberDecimal"
+            android:maxLength="7" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button

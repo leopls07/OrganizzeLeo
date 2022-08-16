@@ -32,7 +32,7 @@ public class SobreFragment extends Fragment {
 
     return new AboutPage(getActivity())
             .setDescription(descricao)
-            .setImage(R.drawable.logomenor)
+            .setImage(R.drawable.logonovafreenance)
             .addGroup("Entre em contato conosco")
             .addEmail("AvetaSoftware@gmail.com","Email de contato")
             .addGroup("Redes sociais")
