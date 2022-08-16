@@ -19,6 +19,7 @@ import androidx.lifecycle.ViewModelProviders;
 import com.example.organizzeleo.R;
 import com.example.organizzeleo.config.ConfiguracaoFirebase;
 import com.example.organizzeleo.helper.Base64Custom;
+import com.example.organizzeleo.model.Carteira;
 import com.example.organizzeleo.model.Usuario;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
@@ -36,6 +37,8 @@ public class MinhaCarteiraFragment extends Fragment {
     private TextView textoSaldo,textoNome;
     private Button botaoSalvar;
     private DatabaseReference firebaseRef = ConfiguracaoFirebase.getFirebaseDatabase();
+    private DatabaseReference firebaseRef2 = ConfiguracaoFirebase.getFirebaseDatabase();
+    Carteira carteira;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -54,12 +57,12 @@ public class MinhaCarteiraFragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                Usuario usuario = snapshot.getValue(Usuario.class);
+                Usuario usuarioBD = snapshot.getValue(Usuario.class);
 
 
 
-                textoNome.setText("Olá, "+usuario.getNome());
-                usuario.setSaldo(campoSaldo.getText().toString());
+                textoNome.setText("Olá, "+usuarioBD.getNome());
+
 
             }
 
@@ -95,10 +98,11 @@ public class MinhaCarteiraFragment extends Fragment {
 
                             if(valorSaldo == null || valorSaldo == "" || valorSaldo.isEmpty()){
                                 Toast.makeText(getContext(),"Digite um Saldo Primeiro",Toast.LENGTH_SHORT).show();
-                                //salvarSaldo();
                             }else{
-                                textoSaldo.setText("R$"+valorSaldo);
+                                salvarSaldo();
+                                //textoSaldo.setText("R$"+carteira.getSaldo());
                                 Toast.makeText(getContext(),"Saldo alterado com sucesso",Toast.LENGTH_SHORT).show();
+
 
                             }
 
@@ -119,10 +123,39 @@ public class MinhaCarteiraFragment extends Fragment {
         });
 
 
+        DatabaseReference usuarioRef2 = firebaseRef.child("Carteira").child(idUsuario);
+
+        usuarioRef2.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+               Carteira carteira = snapshot.getValue(Carteira.class);
+
+                           // carteira.setSaldo(0.0);
+
+                           // textoSaldo.setText("R$" + carteira.getSaldo().toString());
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
 
 
         return view;
+
+
         }
+
+    public void salvarSaldo(){
+        carteira = new Carteira();
+        carteira.setSaldo(Double.parseDouble(campoSaldo.getText().toString()));
+        carteira.Salvar();
+    }
 
 
 

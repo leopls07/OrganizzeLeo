@@ -10,7 +10,7 @@ public class Usuario {
     private String nome;
     private String email;
     private String senha;
-    private String saldo;
+
 
     public Usuario() {
     }
@@ -22,13 +22,7 @@ public class Usuario {
                 .setValue(this);
     }
 
-    public String getSaldo() {
-        return saldo;
-    }
 
-    public void setSaldo(String saldo) {
-        this.saldo = saldo;
-    }
 
     @Exclude
     public String getIdUsuario() {
