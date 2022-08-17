@@ -7,7 +7,7 @@ import com.google.firebase.database.DatabaseReference;
 
 public class Carteira {
 
-    public Double saldo = 0.0;
+    public Double saldo;
 
     public Carteira() {
     }

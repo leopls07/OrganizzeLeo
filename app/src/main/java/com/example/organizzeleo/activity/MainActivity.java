@@ -16,6 +16,7 @@ import com.example.organizzeleo.activity.CadastroActivity;
 import com.example.organizzeleo.activity.LoginActivity;
 import com.example.organizzeleo.activity.PrincipalActivity;
 import com.example.organizzeleo.config.ConfiguracaoFirebase;
+import com.example.organizzeleo.model.Carteira;
 import com.example.organizzeleo.navigation.NavigationActivity;
 import com.example.organizzeleo.navigation.ui.minhaconta.MinhaContaFragment;
 import com.google.android.material.textfield.TextInputEditText;
@@ -35,6 +36,20 @@ public class MainActivity extends IntroActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_main);
+
+
+        /*Carteira carteira = new Carteira();
+
+        if(carteira.getSaldo() == null){
+            carteira.setSaldo(0.0);
+            carteira.Salvar();
+        }else{
+            Toast.makeText(getApplicationContext(), "oie", Toast.LENGTH_SHORT).show();
+        }*/
+
+
+
+
 
         //botaoCadastro = findViewById(R.id.botaoCadastro);
         animation = AnimationUtils.loadAnimation(this,R.anim.fade_in);

@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.example.organizzeleo.R;
 import com.example.organizzeleo.config.ConfiguracaoFirebase;
 import com.example.organizzeleo.helper.Base64Custom;
+import com.example.organizzeleo.model.Carteira;
 import com.example.organizzeleo.model.Usuario;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -120,6 +121,16 @@ public class CadastroActivity extends AppCompatActivity {
 
 
                     Toast.makeText(getApplicationContext(),"Cadastrado com sucesso, vá para login",Toast.LENGTH_SHORT).show();
+
+
+                    Carteira carteira = new Carteira();
+
+                    if(carteira.getSaldo() == null){
+                        carteira.setSaldo(0.0);
+                        carteira.Salvar();
+                    }else {
+                        Toast.makeText(getApplicationContext(), "oie", Toast.LENGTH_SHORT).show();
+                    }
 
                     finish();
 

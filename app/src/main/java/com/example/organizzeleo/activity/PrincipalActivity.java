@@ -3,6 +3,7 @@ package com.example.organizzeleo.activity;
 import android.os.Bundle;
 
 import com.example.organizzeleo.config.ConfiguracaoFirebase;
+import com.example.organizzeleo.model.Carteira;
 import com.example.organizzeleo.model.Usuario;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -28,8 +29,6 @@ public class PrincipalActivity extends AppCompatActivity {
         setContentView(R.layout.activity_principal);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-
 
 
 

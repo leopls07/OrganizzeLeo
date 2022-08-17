@@ -133,7 +133,7 @@ public class MinhaCarteiraFragment extends Fragment {
 
                            // carteira.setSaldo(0.0);
 
-                           // textoSaldo.setText("R$" + carteira.getSaldo().toString());
+                            textoSaldo.setText("R$" + carteira.getSaldo().toString());
 
 
             }
