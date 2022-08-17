@@ -14,12 +14,12 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="95dp"
-        android:layout_height="95dp"
+        android:layout_width="85dp"
+        android:layout_height="85dp"
         android:contentDescription="@string/nav_header_desc"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
-        android:scaleType="centerCrop"
-        app:srcCompat="@drawable/ideialogoqueeugostei" />
+        android:scaleType="centerInside"
+        app:srcCompat="@drawable/freenance_logo_160px" />
 
     <TextView
         android:layout_width="match_parent"

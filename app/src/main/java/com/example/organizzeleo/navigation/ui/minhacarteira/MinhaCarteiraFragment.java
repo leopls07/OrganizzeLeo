@@ -156,9 +156,4 @@ public class MinhaCarteiraFragment extends Fragment {
         carteira.setSaldo(Double.parseDouble(campoSaldo.getText().toString()));
         carteira.Salvar();
     }
-
-
-
-
-
-    }
+        }
