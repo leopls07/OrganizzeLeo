@@ -12,7 +12,14 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.example.organizzeleo.API.HttpService;
+import com.example.organizzeleo.API.Resposta;
 import com.example.organizzeleo.R;
+
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 
 public class InvestirFragment extends Fragment {
@@ -21,16 +28,24 @@ public class InvestirFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        galleryViewModel =
-                ViewModelProviders.of(this).get(GalleryViewModel.class);
+
         View root = inflater.inflate(R.layout.fragment_gallery, container, false);
-        final TextView textView = root.findViewById(R.id.text_gallery);
-        galleryViewModel.getText().observe(this, new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
+
+        String coin = "BTC";
+    try {
+    Resposta retorno = new HttpService(coin).execute().get();
+
+    System.out.println(retorno.toString());
+
+    }catch(InterruptedException e){e.printStackTrace();}
+    catch (ExecutionException e){e.printStackTrace();}
+
+
+
+
+
         return root;
+            }
+
+
     }
-}

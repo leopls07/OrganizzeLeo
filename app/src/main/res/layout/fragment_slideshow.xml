@@ -49,6 +49,7 @@
             android:id="@+id/FrameImage"
             android:layout_width="100dp"
             android:layout_height="100dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:background="@drawable/formatocircular"
             app:layout_constraintEnd_toEndOf="parent"
@@ -57,7 +58,7 @@
 
             <ImageView
                 android:id="@+id/imageView9"
-                android:layout_width="match_parent"
+                android:layout_width="103dp"
                 android:layout_height="match_parent"
                 app:srcCompat="@drawable/minha_conta" />
 
@@ -70,7 +71,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
-            android:gravity="center"
+            android:gravity="start"
             android:text="Nome do usuário"
             android:textAlignment="center"
             android:textColor="@android:color/white"
@@ -84,10 +85,11 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
-            android:gravity="center"
+            android:gravity="left"
             android:text="Email"
+            android:textAlignment="center"
             android:textColor="@android:color/white"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -122,30 +124,46 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
 
-    <TextView
+    <Button
         android:id="@+id/textView27"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/borda"
-        android:padding="8dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="48dp"
+        android:background="@drawable/botao_radius_laranja"
         android:text="   Alterar Senha"
-        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView29" />
 
-    <TextView
+    <Button
         android:id="@+id/textView29"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
         android:layout_marginTop="8dp"
-        android:background="@drawable/borda"
-        android:padding="8dp"
+        android:layout_marginEnd="48dp"
+        android:background="@drawable/botao_radius_laranja"
         android:text="   Alterar Nome de Usuário"
-        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView26" />
+
+    <TextView
+        android:id="@+id/textView31"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="Configurações da Conta"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/ButtonLogout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView27" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
