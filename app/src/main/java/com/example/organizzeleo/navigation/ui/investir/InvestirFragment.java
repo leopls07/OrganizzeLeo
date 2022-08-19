@@ -1,6 +1,8 @@
 package com.example.organizzeleo.navigation.ui.investir;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -117,32 +119,57 @@ public class InvestirFragment extends Fragment {
         spinnerCoin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String coin = parent.getItemAtPosition(position).toString();
-                try {
-                    Resposta retorno = new HttpService(coin).execute().get();
+                final String coin = parent.getItemAtPosition(position).toString();
 
-                    Double retornoDouble = Double.parseDouble(retorno.toString());
-                    DecimalFormat formato = new DecimalFormat("0.###");
-                  String resultadoFormatado = formato.format(retornoDouble);
 
-                    textoRespostaSpinner.setText("Preço Atual: R$"+resultadoFormatado);
-                    System.out.println(retorno.toString());
+                if(position ==0){
 
-                    String quantiaString = campoQuantidade.getText().toString();
-                    if(quantiaString.equals("") || quantiaString.isEmpty() ){
-                        Toast.makeText(getContext(), "Escolha uma quantidade", Toast.LENGTH_SHORT).show();
-                    }else {
-                        Double quantiaDouble = Double.parseDouble(quantiaString);
-                        Double moedasCompradas = (quantiaDouble / retornoDouble);
+                }
+                else {
+                    try {
+                        Resposta retorno = new HttpService(coin).execute().get();
 
-                        String moedasCompradasFormatado = formato.format(moedasCompradas);
-                        textoQuantidadeMoedas.setText(moedasCompradasFormatado + " "+ coin);
+                        final Double retornoDouble = Double.parseDouble(retorno.toString());
+                        final DecimalFormat formato = new DecimalFormat("0.###");
+                        String resultadoFormatado = formato.format(retornoDouble);
+
+                        textoRespostaSpinner.setText("Preço Atual: R$" + resultadoFormatado);
+                        System.out.println(retorno.toString());
+
+                        campoQuantidade.addTextChangedListener(new TextWatcher() {
+                            @Override
+                            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                            }
+
+                            @Override
+                            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                                String quantiaString = campoQuantidade.getText().toString();
+                                if (quantiaString.equals("") || quantiaString.isEmpty()) {
+                                    Toast.makeText(getContext(), "Escolha uma quantidade", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Double quantiaDouble = Double.parseDouble(quantiaString);
+                                    Double moedasCompradas = (quantiaDouble / retornoDouble);
+
+                                    String moedasCompradasFormatado = formato.format(moedasCompradas);
+                                    textoQuantidadeMoedas.setText(moedasCompradasFormatado + " " + coin);
+                                }
+                            }
+
+                            @Override
+                            public void afterTextChanged(Editable s) {
+
+                            }
+                        });
+
+
+
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    } catch (ExecutionException e) {
+                        e.printStackTrace();
                     }
-
-
-                }catch(InterruptedException e){e.printStackTrace();}
-                catch (ExecutionException e){e.printStackTrace();}
-
+                }
             }
 
             @Override

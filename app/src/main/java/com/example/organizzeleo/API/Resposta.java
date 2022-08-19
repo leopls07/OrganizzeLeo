@@ -17,6 +17,8 @@ public class Resposta {
     @NonNull
     @Override
     public String toString(){
-        return "Preço: R$" +ticker.getBuy();//+ "\n"+ "High: " + ticker.getHigh();
+        return String.valueOf(ticker.getBuy());
+
+        //+ "\n"+ "High: " + ticker.getHigh();
     }
 }

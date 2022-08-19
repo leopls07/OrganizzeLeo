@@ -57,10 +57,10 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
-                android:id="@+id/imageView9"
-                android:layout_width="103dp"
-                android:layout_height="match_parent"
-                app:srcCompat="@drawable/minha_conta" />
+            android:id="@+id/imageView9"
+            android:layout_width="103dp"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/minha_conta" />
 
         </FrameLayout>
 

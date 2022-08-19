@@ -1,6 +1,17 @@
 <resources>
     <string name="app_name">Freenance</string>
 
+    <string-array name="spinner_array" >
+        <item>Selecione um item</item>
+        <item>BTC</item>
+        <item>ETH</item>
+        <item>SLP</item>
+    </string-array>
+
+
+
+
+
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>

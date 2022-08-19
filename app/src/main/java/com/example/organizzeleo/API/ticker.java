@@ -23,7 +23,7 @@ public class ticker {
     }
 
     public String toString(){
-        return "Preço: R$" +getBuy();
+        return String.valueOf(getBuy());
 
     }
 
