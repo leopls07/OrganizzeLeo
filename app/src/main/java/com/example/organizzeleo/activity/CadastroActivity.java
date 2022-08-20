@@ -125,8 +125,23 @@ public class CadastroActivity extends AppCompatActivity {
 
                     Carteira carteira = new Carteira();
 
-                    if(carteira.getSaldo() == null){
+                    if(carteira.getSaldo() == null && carteira.getBTC() == null && carteira.getETH() == null ){
                         carteira.setSaldo(0.0);
+                        carteira.setETH(0.0);
+                        carteira.setBTC(0.0);
+                        carteira.setADA(0.0);
+                        carteira.setAPE(0.0);
+                        carteira.setAXS(0.0);
+                        carteira.setDOGE(0.0);
+                        carteira.setLTC(0.0);
+                        carteira.setMPL(0.0);
+                        carteira.setSHIB(0.0);
+                        carteira.setSLP(0.0);
+                        carteira.setSOL(0.0);
+                        carteira.setTRB(0.0);
+                        carteira.setUSDC(0.0);
+                        carteira.setXRP(0.0);
+                        carteira.setXTZ(0.0);
                         carteira.Salvar();
                     }else {
                         Toast.makeText(getApplicationContext(), "oie", Toast.LENGTH_SHORT).show();

@@ -45,6 +45,10 @@ public class MinhaCarteiraFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
+
+
+
+
         textoNome = view.findViewById(R.id.textNomeMinhaCarteira);
 
         FirebaseAuth autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
@@ -62,7 +66,6 @@ public class MinhaCarteiraFragment extends Fragment {
 
 
                 textoNome.setText("Olá, "+usuarioBD.getNome());
-
 
             }
 
@@ -131,9 +134,15 @@ public class MinhaCarteiraFragment extends Fragment {
 
                Carteira carteira = snapshot.getValue(Carteira.class);
 
+
+
                            // carteira.setSaldo(0.0);
 
                             textoSaldo.setText("R$" + carteira.getSaldo().toString());
+                            carteira.setETH(carteira.getETH());
+                            carteira.setBTC(carteira.getBTC());
+
+
 
 
             }
@@ -152,8 +161,53 @@ public class MinhaCarteiraFragment extends Fragment {
         }
 
     public void salvarSaldo(){
-        carteira = new Carteira();
-        carteira.setSaldo(Double.parseDouble(campoSaldo.getText().toString()));
-        carteira.Salvar();
+        FirebaseAuth autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
+        String email = autenticacao.getCurrentUser().getEmail();
+
+        String idUsuario = Base64Custom.codificarBase64( email );
+
+        DatabaseReference usuarioRef2 = firebaseRef.child("Carteira").child(idUsuario);
+
+        usuarioRef2.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                Carteira carteira = snapshot.getValue(Carteira.class);
+
+
+
+                // carteira.setSaldo(0.0);
+
+                textoSaldo.setText("R$" + carteira.getSaldo().toString());
+                carteira.setETH(carteira.getETH());
+                carteira.setBTC(carteira.getBTC());
+                carteira.setADA(carteira.getADA());
+                carteira.setAPE(carteira.getAPE());
+                carteira.setAXS(carteira.getAXS());
+                carteira.setDOGE(carteira.getDOGE());
+                carteira.setLTC(carteira.getLTC());
+                carteira.setMPL(carteira.getMPL());
+                carteira.setSHIB(carteira.getSHIB());
+                carteira.setSLP(carteira.getSLP());
+                carteira.setSOL(carteira.getSOL());
+                carteira.setTRB(carteira.getTRB());
+                carteira.setUSDC(carteira.getUSDC());
+                carteira.setXRP(carteira.getXRP());
+                carteira.setXTZ(carteira.getXTZ());
+                carteira.setSaldo(Double.parseDouble(campoSaldo.getText().toString()));
+                carteira.Salvar();
+
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        //carteira = new Carteira();
+
     }
         }

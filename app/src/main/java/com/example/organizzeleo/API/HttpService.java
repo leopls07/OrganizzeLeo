@@ -28,7 +28,7 @@ public class HttpService  extends AsyncTask<Void, Void,Resposta> {
 
     protected Resposta doInBackground(Void... voids) {
         StringBuilder resposta = new StringBuilder();
-        if (this.coin !=null && this.coin.length() ==3) {
+        if (this.coin !=null) {
             try {
                 URL url = new URL("https://www.mercadobitcoin.net/api/"+coin+"/ticker/");
 
