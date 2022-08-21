@@ -104,7 +104,6 @@ public class InvestirFragment extends Fragment {
 
                 Carteira carteira = snapshot.getValue(Carteira.class);
 
-                // carteira.setSaldo(0.0);
 
                 textoSaldo.setText("R$" + carteira.getSaldo().toString());
 
@@ -178,88 +177,90 @@ public class InvestirFragment extends Fragment {
                                     textoQuantidadeMoedas.setText(moedasCompradasFormatado + "" + coin+"?");
 
 
-                                    DatabaseReference carteiraRef = firebaseRef.child("Carteira").child(idUsuario);
+                                    final DatabaseReference carteiraRef = firebaseRef.child("Carteira").child(idUsuario);
 
                                     carteiraRef.addValueEventListener(new ValueEventListener() {
                                         @Override
                                         public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                                            final Carteira carteira = snapshot.getValue(Carteira.class);
+                                           final Carteira carteira = snapshot.getValue(Carteira.class);
 
                                             // carteira.setSaldo(0.0);
 
                                                 botaoComprar.setOnClickListener(new View.OnClickListener() {
                                                     @Override
                                                     public void onClick(View v) {
-                                                        if(campoQuantidade.getText().toString().equals("") || campoQuantidade.getText().toString().isEmpty())  {
-                                                            Toast.makeText(getContext(),"Digite a Quantia Desejada",Toast.LENGTH_SHORT);
-                                                        }else{
-                                                        final AlertDialog.Builder alertDialog = new AlertDialog.Builder(getActivity());
+                                                        if (position == 0) {
+                                                            Toast.makeText(getContext(), "Digite a Quantia Desejada", Toast.LENGTH_SHORT).show();
+                                                        } else {
+                                                            if (campoQuantidade.getText().toString().equals("") || campoQuantidade.getText().toString() == null){
+                                                                Toast.makeText(getContext(), "Digite a Quantia Desejada", Toast.LENGTH_SHORT).show();
+                                                            } else {
+                                                                final AlertDialog.Builder alertDialog = new AlertDialog.Builder(getActivity());
 
-                                                        alertDialog.setTitle("Deseja Efetuar a compra?");
-                                                        alertDialog.setMessage("O valor será subtraido do seu saldo, deseja continuar?");
-                                                        alertDialog.setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
-                                                            @Override
-                                                            public void onClick(DialogInterface dialog, int which) {
+                                                                alertDialog.setTitle("Deseja Efetuar a compra?");
+                                                                alertDialog.setMessage("O valor será subtraido do seu saldo, deseja continuar?");
+                                                                alertDialog.setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
+                                                                    @Override
+                                                                    public void onClick(DialogInterface dialog, int which) {
 
-                                                                if (carteira.getSaldo() >= quantiaDouble) {
-                                                                    if (position == 1) {
-                                                                        carteira.setBTC(moedasCompradas + carteira.getBTC());
-                                                                    }
-                                                                    if (position == 2) {
-                                                                        carteira.setETH(moedasCompradas + carteira.getETH());
-                                                                    }
-                                                                    if (position == 3) {
-                                                                        carteira.setSLP(moedasCompradas + carteira.getSLP());
-                                                                    }
-                                                                    if (position == 4) {
-                                                                        carteira.setSOL(moedasCompradas + carteira.getSOL());
-                                                                    }
-                                                                    if (position == 5) {
-                                                                        carteira.setMPL(moedasCompradas + carteira.getMPL());
-                                                                    }
-                                                                    if (position == 6) {
-                                                                        carteira.setDOGE(moedasCompradas + carteira.getDOGE());
-                                                                    }
-                                                                    if (position == 7) {
-                                                                        carteira.setAXS(moedasCompradas + carteira.getAXS());
-                                                                    }
-                                                                    if (position == 8) {
-                                                                        carteira.setAPE(moedasCompradas + carteira.getAPE());
-                                                                    }
-                                                                    if (position == 9) {
-                                                                        carteira.setADA(moedasCompradas + carteira.getADA());
-                                                                    }
-                                                                    if (position == 10) {
-                                                                        carteira.setLTC(moedasCompradas + carteira.getLTC());
-                                                                    }
-                                                                    if (position == 11) {
-                                                                        carteira.setSHIB(moedasCompradas + carteira.getSHIB());
-                                                                    }
-                                                                    if (position == 12) {
-                                                                        carteira.setTRB(moedasCompradas + carteira.getTRB());
-                                                                    }
-                                                                    if (position == 13) {
-                                                                        carteira.setXRP(moedasCompradas + carteira.getXRP());
-                                                                    }
-                                                                    if (position == 14) {
-                                                                        carteira.setXTZ(moedasCompradas + carteira.getXTZ());
-                                                                    }
-                                                                    if (position == 15) {
-                                                                        carteira.setUSDC(moedasCompradas + carteira.getUSDC());
-                                                                    }
+                                                                        if (carteira.getSaldo() >= quantiaDouble) {
+                                                                            if (position == 1) {
+                                                                                carteira.setBTC(moedasCompradas + carteira.getBTC());
+                                                                            }
+                                                                            if (position == 2) {
+                                                                                carteira.setETH(moedasCompradas + carteira.getETH());
+                                                                            }
+                                                                            if (position == 3) {
+                                                                                carteira.setSLP(moedasCompradas + carteira.getSLP());
+                                                                            }
+                                                                            if (position == 4) {
+                                                                                carteira.setSOL(moedasCompradas + carteira.getSOL());
+                                                                            }
+                                                                            if (position == 5) {
+                                                                                carteira.setMPL(moedasCompradas + carteira.getMPL());
+                                                                            }
+                                                                            if (position == 6) {
+                                                                                carteira.setDOGE(moedasCompradas + carteira.getDOGE());
+                                                                            }
+                                                                            if (position == 7) {
+                                                                                carteira.setAXS(moedasCompradas + carteira.getAXS());
+                                                                            }
+                                                                            if (position == 8) {
+                                                                                carteira.setAPE(moedasCompradas + carteira.getAPE());
+                                                                            }
+                                                                            if (position == 9) {
+                                                                                carteira.setADA(moedasCompradas + carteira.getADA());
+                                                                            }
+                                                                            if (position == 10) {
+                                                                                carteira.setLTC(moedasCompradas + carteira.getLTC());
+                                                                            }
+                                                                            if (position == 11) {
+                                                                                carteira.setSHIB(moedasCompradas + carteira.getSHIB());
+                                                                            }
+                                                                            if (position == 12) {
+                                                                                carteira.setTRB(moedasCompradas + carteira.getTRB());
+                                                                            }
+                                                                            if (position == 13) {
+                                                                                carteira.setXRP(moedasCompradas + carteira.getXRP());
+                                                                            }
+                                                                            if (position == 14) {
+                                                                                carteira.setXTZ(moedasCompradas + carteira.getXTZ());
+                                                                            }
+                                                                            if (position == 15) {
+                                                                                carteira.setUSDC(moedasCompradas + carteira.getUSDC());
+                                                                            }
 
-                                                                    Double saldoNovo = carteira.getSaldo() - quantiaDouble;
-                                                                    carteira.setSaldo(saldoNovo);
-                                                                    textoSaldo.setText("R$" + saldoNovo.toString());
-
-
-                                                                    carteira.Salvar();
+                                                                            Double saldoNovo = carteira.getSaldo() - quantiaDouble;
+                                                                            textoSaldo.setText("R$" + carteira.getSaldo().toString());
+                                                                            carteira.setSaldo(saldoNovo);
+                                                                            carteira.Salvar();
 
 
-                                                                    Toast.makeText(getContext(), "Compra efetuada com sucesso", Toast.LENGTH_SHORT).show();
-                                                                } else {
-                                                                    Toast.makeText(getContext(), "Saldo Insuficiente vá para sua carteira", Toast.LENGTH_LONG).show();
+
+                                                                            Toast.makeText(getContext(), "Compra efetuada com sucesso", Toast.LENGTH_SHORT).show();
+                                                                        } else {
+                                                                            Toast.makeText(getContext(), "Saldo Insuficiente vá para sua carteira", Toast.LENGTH_LONG).show();
                                                                 /*Snackbar mySnackbar = Snackbar.make(getView(),
                                                                         "Tal", Snackbar.LENGTH_SHORT);
                                                                 mySnackbar.setAction("Ir para sua carteira?", new View.OnClickListener() {
@@ -271,21 +272,22 @@ public class InvestirFragment extends Fragment {
                                                                     }
                                                                 });
                                                                 mySnackbar.show();*/
-                                                                }
+                                                                        }
 
 
+                                                                    }
+                                                                });
+
+                                                                alertDialog.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                                                                    @Override
+                                                                    public void onClick(DialogInterface dialog, int which) {
+                                                                        dialog.dismiss();
+                                                                    }
+                                                                });
+                                                                alertDialog.show();
                                                             }
-                                                        });
-
-                                                        alertDialog.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
-                                                            @Override
-                                                            public void onClick(DialogInterface dialog, int which) {
-                                                                dialog.dismiss();
-                                                            }
-                                                        });
-                                                        alertDialog.show();
-                                                    }
                                                         }
+                                                    }
                                                 });
 
 

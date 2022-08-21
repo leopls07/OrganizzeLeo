@@ -121,14 +121,10 @@
         android:id="@+id/constraintLayout69"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/imageView7"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/botaoSalvarSaldo"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toBottomOf="@+id/botaoSalvarSaldo">
 
         <TextView
             android:id="@+id/textView39"
@@ -136,6 +132,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="Moedas na sua carteira"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -144,7 +141,7 @@
             android:id="@+id/BTC"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="48dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:drawableLeft="@drawable/bitocoin"
             android:text="BTC"
@@ -152,156 +149,157 @@
             app:layout_constraintTop_toBottomOf="@+id/textView39" />
 
         <TextView
-            android:id="@+id/textView41"
+            android:id="@+id/ADA"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="48dp"
-            android:text="TextView"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp"
+            android:text="ADA"
+            app:layout_constraintStart_toEndOf="@+id/BTC"
+            app:layout_constraintStart_toStartOf="@+id/LTC"
             app:layout_constraintTop_toBottomOf="@+id/textView39" />
 
         <TextView
-            android:id="@+id/textView42"
+            android:id="@+id/ETH"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="48dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            android:text="TextView"
+            android:text="ETH"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/BTC" />
 
         <TextView
-            android:id="@+id/textView43"
+            android:id="@+id/SLP"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="48dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            android:text="TextView"
+            android:text="SLP"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView42" />
+            app:layout_constraintTop_toBottomOf="@+id/ETH" />
 
         <TextView
-            android:id="@+id/textView44"
+            android:id="@+id/SOL"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="48dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            android:text="TextView"
+            android:text="SOL"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView43" />
+            app:layout_constraintTop_toBottomOf="@+id/SLP" />
 
         <TextView
-            android:id="@+id/textView45"
+            android:id="@+id/AXS"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="48dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            android:text="TextView"
+            android:text="AXS"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView54" />
+            app:layout_constraintTop_toBottomOf="@+id/DOGE" />
 
         <TextView
-            android:id="@+id/textView48"
+            android:id="@+id/MPL"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="48dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            android:text="TextView"
+            android:text="MPL"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView44" />
+            app:layout_constraintTop_toBottomOf="@+id/SOL" />
 
         <TextView
-            android:id="@+id/textView52"
+            android:id="@+id/XRP"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="48dp"
-            android:text="TextView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView47" />
+            android:text="XRP"
+            app:layout_constraintStart_toEndOf="@+id/MPL"
+            app:layout_constraintStart_toStartOf="@+id/XTZ"
+            app:layout_constraintTop_toBottomOf="@+id/TRB" />
 
         <TextView
-            android:id="@+id/textView46"
+            android:id="@+id/APE"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            android:text="TextView"
-            app:layout_constraintEnd_toStartOf="@+id/textView41"
-            app:layout_constraintStart_toEndOf="@+id/BTC"
-            app:layout_constraintTop_toBottomOf="@+id/textView39" />
-
-        <TextView
-            android:id="@+id/textView47"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="48dp"
-            android:text="TextView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView51" />
-
-        <TextView
-            android:id="@+id/textView49"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="48dp"
-            android:text="TextView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView52" />
-
-        <TextView
-            android:id="@+id/textView50"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="48dp"
-            android:text="TextView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView41" />
-
-        <TextView
-            android:id="@+id/textView51"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="48dp"
-            android:text="TextView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView50" />
-
-        <TextView
-            android:id="@+id/textView53"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="48dp"
-            android:text="TextView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView49" />
-
-        <TextView
-            android:id="@+id/textView54"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="48dp"
-            android:layout_marginTop="8dp"
-            android:text="TextView"
+            android:text="APE"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView48" />
+            app:layout_constraintTop_toBottomOf="@+id/AXS" />
 
         <TextView
-            android:id="@+id/textView55"
+            android:id="@+id/TRB"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Novas Moedas \n Em Breve..."
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="8dp"
+            android:text="TRB"
+            app:layout_constraintStart_toEndOf="@+id/SOL"
+            app:layout_constraintStart_toStartOf="@+id/XRP"
+            app:layout_constraintTop_toBottomOf="@+id/SHIB" />
+
+        <TextView
+            android:id="@+id/XTZ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="XTZ"
+            app:layout_constraintStart_toEndOf="@+id/DOGE"
+            app:layout_constraintStart_toStartOf="@+id/USDC"
+            app:layout_constraintTop_toBottomOf="@+id/XRP" />
+
+        <TextView
+            android:id="@+id/LTC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="LTC"
+            app:layout_constraintStart_toEndOf="@+id/ETH"
+            app:layout_constraintStart_toStartOf="@+id/SHIB"
+            app:layout_constraintTop_toBottomOf="@+id/ADA" />
+
+        <TextView
+            android:id="@+id/SHIB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="SHIB "
+            app:layout_constraintStart_toEndOf="@+id/SLP"
+            app:layout_constraintStart_toStartOf="@+id/TRB"
+            app:layout_constraintTop_toBottomOf="@+id/LTC" />
+
+        <TextView
+            android:id="@+id/USDC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="USDC"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toEndOf="@+id/AXS"
+            app:layout_constraintTop_toBottomOf="@+id/XTZ" />
+
+        <TextView
+            android:id="@+id/DOGE"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="DOGE"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.44" />
+            app:layout_constraintTop_toBottomOf="@+id/MPL" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/textView55"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="Novas Moedas \n Em Breve..."
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout69" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
