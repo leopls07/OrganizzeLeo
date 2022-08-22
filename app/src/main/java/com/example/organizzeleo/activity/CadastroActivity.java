@@ -125,6 +125,8 @@ public class CadastroActivity extends AppCompatActivity {
 
                     Carteira carteira = new Carteira();
 
+                    
+
                     if(carteira.getSaldo() == null && carteira.getBTC() == null && carteira.getETH() == null ){
                         carteira.setSaldo(0.0);
                         carteira.setETH(0.0);

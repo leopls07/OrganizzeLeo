@@ -10,7 +10,7 @@
             android:title="Minha Carteira" />
         <item
             android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_coin_svgrepo_com"
+            android:icon="@drawable/graficosubindoicon1"
             android:title="Investir" />
         <item
             android:id="@+id/nav_slideshow"
