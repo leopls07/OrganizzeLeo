@@ -30,6 +30,8 @@ import com.example.organizzeleo.API.Resposta;
 import com.example.organizzeleo.R;
 import com.example.organizzeleo.config.ConfiguracaoFirebase;
 import com.example.organizzeleo.helper.Base64Custom;
+import com.example.organizzeleo.helper.CustomAdapter;
+import com.example.organizzeleo.helper.ItemCustomSpinner;
 import com.example.organizzeleo.model.Carteira;
 import com.example.organizzeleo.model.Usuario;
 import com.example.organizzeleo.navigation.ui.minhacarteira.MinhaCarteiraFragment;
@@ -42,6 +44,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
@@ -57,6 +60,7 @@ public class InvestirFragment extends Fragment {
     private EditText campoQuantidade;
     private DatabaseReference firebaseRef = ConfiguracaoFirebase.getFirebaseDatabase();
     private Button botaoComprar;
+    ArrayList<ItemCustomSpinner> customList;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -123,14 +127,18 @@ public class InvestirFragment extends Fragment {
 
         spinnerCoin = root.findViewById(R.id.spinnerMoedas);
         textoRespostaSpinner = root.findViewById(R.id.textRespostaSpinner);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity(),R.array.spinner_array,android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        customList = getCustomList();
+        CustomAdapter adapter = new CustomAdapter(getContext(),customList);
         spinnerCoin.setAdapter(adapter);
         spinnerCoin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, final int position, long id) {
-                final String coin = parent.getItemAtPosition(position).toString();
 
+
+                ItemCustomSpinner item =(ItemCustomSpinner)parent.getSelectedItem();
+
+
+               final String coin = item.getSpinnerString();
 
 
 
@@ -144,9 +152,74 @@ public class InvestirFragment extends Fragment {
 
                         final Double retornoDouble = Double.parseDouble(retorno.toString());
                         final DecimalFormat formato = new DecimalFormat("0.####");
-                        String resultadoFormatado = formato.format(retornoDouble);
+                        final String resultadoFormatado = formato.format(retornoDouble);
 
-                        textoRespostaSpinner.setText("Preço Atual: R$" + resultadoFormatado);
+
+                        switch (position){
+
+                            case 1:
+                                textoRespostaSpinner.setText("Bitcoin\n Preço Atual: R$"+ resultadoFormatado);
+                                break;
+                            case 2:
+                                textoRespostaSpinner.setText("Ethereum\n Preço Atual: R$"+resultadoFormatado);
+                                break;
+                            case 3:
+                                textoRespostaSpinner.setText("Smooth Love Potion\n Preço Atual: R$"+resultadoFormatado);
+                                break;
+                            case 4:
+                                textoRespostaSpinner.setText("Solana Preço Atual: R$"+resultadoFormatado);
+                                break;
+                            case 5:
+                                textoRespostaSpinner.setText("Maple\n Preço Atual: R$"+resultadoFormatado);
+                                break;
+                            case 6:
+                                textoRespostaSpinner.setText("DOGE \nPreço Atual: R$"+resultadoFormatado);
+                                break;
+                            case 7:
+                                textoRespostaSpinner.setText("Axie Infinity\n Preço Atual: R$"+resultadoFormatado);
+                                break;
+                            case 8:
+                                textoRespostaSpinner.setText("ApeCoin\n Preço Atual: R$"+resultadoFormatado);
+                                break;
+                            case 9:
+                                textoRespostaSpinner.setText("Cardano\n Preço Atual: R$"+resultadoFormatado);
+                                break;
+                            case 10:
+                                textoRespostaSpinner.setText("Litecoin\n Preço Atual: R$"+resultadoFormatado);
+                                break;
+                            case 11:
+                                textoRespostaSpinner.setText("Shiba Inu\n Preço Atual: R$"+resultadoFormatado);
+                                break;
+                            case 12:
+                                textoRespostaSpinner.setText("Tellor\n Preço Atual: R$"+resultadoFormatado);
+                                break;
+                            case 13:
+                                textoRespostaSpinner.setText("XRP\n Preço Atual: R$"+resultadoFormatado);
+                            case 14:
+                                textoRespostaSpinner.setText("Tezos\n Preço Atual: R$"+resultadoFormatado);
+                                break;
+                            case 15:
+                                textoRespostaSpinner.setText("USD Coin\n Preço Atual: R$"+resultadoFormatado);
+                                break;
+
+
+
+
+
+
+                        }
+
+
+
+
+
+
+
+
+
+
+
+                       // textoRespostaSpinner.setText("Preço Atual: R$" + resultadoFormatado);
                         System.out.println(retorno.toString());
 
                         campoQuantidade.addTextChangedListener(new TextWatcher() {
@@ -337,6 +410,30 @@ public class InvestirFragment extends Fragment {
         return root;
 
             }
+
+            private ArrayList<ItemCustomSpinner>getCustomList(){
+        customList = new ArrayList<>();
+
+        customList.add(new ItemCustomSpinner("Escolha uma moeda",R.drawable.bitocoin));
+        customList.add(new ItemCustomSpinner("BTC",R.drawable.ic_btc));
+        customList.add(new ItemCustomSpinner("ETH",R.drawable.ic_eth));
+        customList.add(new ItemCustomSpinner("SLP",R.drawable.ic_slp));
+        customList.add(new ItemCustomSpinner("SOL",R.drawable.ic_sol));
+        customList.add(new ItemCustomSpinner("MPL",R.drawable.ic_maple));
+        customList.add(new ItemCustomSpinner("DOGE",R.drawable.ic_doge2));
+        customList.add(new ItemCustomSpinner("AXS",R.drawable.ic_axs2));
+        customList.add(new ItemCustomSpinner("APE",R.drawable.ic_ape2));
+        customList.add(new ItemCustomSpinner("ADA",R.drawable.ic_ada));
+        customList.add(new ItemCustomSpinner("LTC",R.drawable.ic_ltc));
+        customList.add(new ItemCustomSpinner("SHIB",R.drawable.ic_shib));
+        customList.add(new ItemCustomSpinner("TRB",R.drawable.ic_trb));
+        customList.add(new ItemCustomSpinner("XRP",R.drawable.ic_xrp));
+        customList.add(new ItemCustomSpinner("XTZ",R.drawable.ic_xtz));
+        customList.add(new ItemCustomSpinner("USDC",R.drawable.ic_usdc));
+        return customList;
+
+
+    }
 
 
     }

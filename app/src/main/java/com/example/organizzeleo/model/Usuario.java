@@ -1,6 +1,8 @@
 package com.example.organizzeleo.model;
 
 import com.example.organizzeleo.config.ConfiguracaoFirebase;
+import com.example.organizzeleo.helper.Base64Custom;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Exclude;
 
@@ -19,6 +21,15 @@ public class Usuario {
         DatabaseReference firebase = ConfiguracaoFirebase.getFirebaseDatabase();
         firebase.child("usuarios")
                 .child(this.idUsuario)
+                .setValue(this);
+    }
+
+    public void salvarNome(){
+        FirebaseAuth autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
+        String email = Base64Custom.codificarBase64(autenticacao.getCurrentUser().getEmail());
+        DatabaseReference firebase = ConfiguracaoFirebase.getFirebaseDatabase();
+        firebase.child("usuarios")
+                .child(email)
                 .setValue(this);
     }
 

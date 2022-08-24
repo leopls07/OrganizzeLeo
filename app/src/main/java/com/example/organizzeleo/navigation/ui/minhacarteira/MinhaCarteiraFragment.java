@@ -280,21 +280,21 @@ public class MinhaCarteiraFragment extends Fragment {
                 String USDCformatado= formato.format(carteira.getUSDC());
 
 
-                textBTC.setText("BTC:"+BTCformatado);
-                textETH.setText("ETH:"+ETHformatado);
-                textSLP.setText("SLP:"+SLPformatado);
-                textSOL.setText("SOL:"+SOLformatado);
-                textMPL.setText("MPL:"+MPLformatado);
-                textDOGE.setText("DOGE:"+DOGEformatado);
-                textAXS.setText("AXS:"+AXSformatado);
-                textAPE.setText("APE:"+APEformatado);
-                textADA.setText("ADA:"+ADAformatado);
-                textLTC.setText("LTC:"+LTCformatado);
-                textSHIB.setText("SHIB:"+SHIBformatado);
-                textTRB.setText("TRB:"+TRBformatado);
-                textXRP.setText("XRP:"+XRPformatado);
-                textXTZ.setText("XTZ:"+XTZformatado);
-                textUSDC.setText("USDC:"+USDCformatado);
+                textBTC.setText("BTC: "+BTCformatado);
+                textETH.setText("ETH: "+ETHformatado);
+                textSLP.setText("SLP: "+SLPformatado);
+                textSOL.setText("SOL: "+SOLformatado);
+                textMPL.setText("MPL: "+MPLformatado);
+                textDOGE.setText("DOGE: "+DOGEformatado);
+                textAXS.setText("AXS: "+AXSformatado);
+                textAPE.setText("APE: "+APEformatado);
+                textADA.setText("ADA: "+ADAformatado);
+                textLTC.setText("LTC: "+LTCformatado);
+                textSHIB.setText("SHIB: "+SHIBformatado);
+                textTRB.setText("TRB: "+TRBformatado);
+                textXRP.setText("XRP: "+XRPformatado);
+                textXTZ.setText("XTZ: "+XTZformatado);
+                textUSDC.setText("USDC: "+USDCformatado);
 
                 carteira.Salvar();
 
