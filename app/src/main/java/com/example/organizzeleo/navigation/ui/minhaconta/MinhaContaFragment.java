@@ -217,8 +217,28 @@ public class MinhaContaFragment extends Fragment {
 
                         final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                         AuthCredential authCredential = EmailAuthProvider.getCredential(user.getEmail(), oldPassword);
-                        user.reauthenticate(authCredential)
-                                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        user.reauthenticate(authCredential).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if (task.isSuccessful()){
+                                    user.updatePassword(newPassword).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            if (task.isSuccessful()){
+                                                Toast.makeText(getActivity(),
+                                                        "Senha alterada com sucesso!",
+                                                        Toast.LENGTH_SHORT).show();
+                                                builder.dismiss();
+                                            }else{Toast.makeText(getContext(),"Erro, Senha não alterada",Toast.LENGTH_SHORT).show();
+                                            }
+                                        }
+                                    });
+                                }else{
+                                    Toast.makeText(getContext(),"Senha incorreta, tente novamente",Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
+                               /* .addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
                                     public void onSuccess(Void unused) {
                                         user.updatePassword(newPassword)
@@ -241,7 +261,7 @@ public class MinhaContaFragment extends Fragment {
                                                 });
                                     }
                                 });
-
+*/
 
                     }
                 });
