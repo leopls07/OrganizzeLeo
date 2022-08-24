@@ -1,9 +1,7 @@
 package com.example.organizzeleo.navigation.ui.investir;
 
 import android.app.AlertDialog;
-import android.app.UiAutomation;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -11,19 +9,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
 
 import com.example.organizzeleo.API.HttpService;
 import com.example.organizzeleo.API.Resposta;
@@ -34,9 +27,6 @@ import com.example.organizzeleo.helper.CustomAdapter;
 import com.example.organizzeleo.helper.ItemCustomSpinner;
 import com.example.organizzeleo.model.Carteira;
 import com.example.organizzeleo.model.Usuario;
-import com.example.organizzeleo.navigation.ui.minhacarteira.MinhaCarteiraFragment;
-import com.example.organizzeleo.navigation.ui.minhaconta.MinhaContaFragment;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -46,11 +36,6 @@ import com.google.firebase.database.ValueEventListener;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Executor;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-
-import static java.lang.Double.parseDouble;
 
 
 public class InvestirFragment extends Fragment {
@@ -195,6 +180,7 @@ public class InvestirFragment extends Fragment {
                                 break;
                             case 13:
                                 textoRespostaSpinner.setText("XRP\n Preço Atual: R$"+resultadoFormatado);
+                                break;
                             case 14:
                                 textoRespostaSpinner.setText("Tezos\n Preço Atual: R$"+resultadoFormatado);
                                 break;
@@ -334,17 +320,7 @@ public class InvestirFragment extends Fragment {
                                                                             Toast.makeText(getContext(), "Compra efetuada com sucesso", Toast.LENGTH_SHORT).show();
                                                                         } else {
                                                                             Toast.makeText(getContext(), "Saldo Insuficiente vá para sua carteira", Toast.LENGTH_LONG).show();
-                                                                /*Snackbar mySnackbar = Snackbar.make(getView(),
-                                                                        "Tal", Snackbar.LENGTH_SHORT);
-                                                                mySnackbar.setAction("Ir para sua carteira?", new View.OnClickListener() {
-                                                                    @Override
-                                                                    public void onClick(View v) {
-                                                                        Intent intent = new Intent(getActivity(), MinhaCarteiraFragment.class);
-                                                                        startActivity(intent);
-                                                                        intent.addFlags(intent.FLAG_ACTIVITY_CLEAR_TASK);
-                                                                    }
-                                                                });
-                                                                mySnackbar.show();*/
+
                                                                         }
 
 

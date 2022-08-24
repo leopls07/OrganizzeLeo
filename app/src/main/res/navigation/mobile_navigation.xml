@@ -26,7 +26,7 @@
     <fragment
         android:id="@+id/nav_tools"
         android:name="com.example.organizzeleo.navigation.ui.moedasdisponiveis.MoedasDisponiveisFragment"
-        android:label="@string/menu_tools"
+        android:label="Moedas Disponíveis"
         tools:layout="@layout/fragment_moedasdisponiveis" />
 
     <fragment
@@ -38,6 +38,6 @@
     <fragment
         android:id="@+id/nav_send"
         android:name="com.example.organizzeleo.navigation.ui.vender.VenderFragment"
-        android:label="@string/menu_send"
+        android:label="Vender Investimentos"
         tools:layout="@layout/fragment_vender" />
 </navigation>

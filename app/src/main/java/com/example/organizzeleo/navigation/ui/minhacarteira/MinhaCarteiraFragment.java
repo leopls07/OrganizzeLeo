@@ -42,12 +42,14 @@ public class MinhaCarteiraFragment extends Fragment {
     private Button botaoSalvar;
     private DatabaseReference firebaseRef = ConfiguracaoFirebase.getFirebaseDatabase();
     private DatabaseReference firebaseRef2 = ConfiguracaoFirebase.getFirebaseDatabase();
+    private  FirebaseAuth autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
 
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
+
 
         mostrarValores();
 
