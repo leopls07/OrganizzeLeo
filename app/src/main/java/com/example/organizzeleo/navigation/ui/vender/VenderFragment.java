@@ -33,6 +33,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
@@ -66,6 +68,7 @@ public class VenderFragment extends Fragment {
         valorRecebidoText = view.findViewById(R.id.valorRecebidoVenda);
         botaoVender = view.findViewById(R.id.botaoVender);
         textoVenderTudo = view.findViewById(R.id.venderTudoText);
+
 
 
         final String email = autenticacao.getCurrentUser().getEmail();
@@ -301,7 +304,7 @@ public class VenderFragment extends Fragment {
                                         break;
                                     case 3:
                                         textoRespostaSpinner.setText("Smooth Love Potion\n Preço Atual: R$"+resultadoFormatado);
-                                        textoQuantidadeMoedasCarteira.setText("Atualmente você tem: \n"+SLPformatado+" Smooth Love Potion na carteira");
+                                        textoQuantidadeMoedasCarteira.setText("Atualmente você tem: \n"+SLPformatado+" SLP na carteira");
                                         break;
                                     case 4:
                                         textoRespostaSpinner.setText("Solana Preço Atual: R$"+resultadoFormatado);
@@ -420,7 +423,10 @@ public class VenderFragment extends Fragment {
                                                             public void onClick(DialogInterface dialog, int which) {
 
                                                                 Double quantidadeVendida = Double.parseDouble(campoQuantidade.getText().toString());
+                                                                DecimalFormat formato = new DecimalFormat("0.###");
+
                                                                 Double saldoNovo;
+                                                                String saldoNovoStringFormatado;
                                                                 switch (position) {
 
 
@@ -429,8 +435,11 @@ public class VenderFragment extends Fragment {
                                                                             saldoNovo = quantidadeVendida * retornoDouble;
                                                                             carteira.setSaldo(carteira.getSaldo() + saldoNovo);
                                                                             carteira.setBTC(carteira.getBTC() - quantidadeVendida);
+                                                                            BigDecimal bd = new BigDecimal(carteira.getSaldo()).setScale(3, RoundingMode.HALF_EVEN);
+                                                                            carteira.setSaldo(bd.doubleValue());
                                                                             carteira.Salvar();
                                                                             campoQuantidade.setText("");
+
                                                                         } else if (quantidadeVendida > carteira.getBTC()) {
                                                                             Toast.makeText(getActivity(), "Voce nao tem  Bitcoin(BTC) o suficiente", Toast.LENGTH_SHORT).show();
                                                                         }
@@ -440,6 +449,8 @@ public class VenderFragment extends Fragment {
                                                                             saldoNovo = quantidadeVendida * retornoDouble;
                                                                             carteira.setSaldo(carteira.getSaldo() + saldoNovo);
                                                                             carteira.setETH(carteira.getETH() - quantidadeVendida);
+                                                                            BigDecimal bd = new BigDecimal(carteira.getSaldo()).setScale(3, RoundingMode.HALF_EVEN);
+                                                                            carteira.setSaldo(bd.doubleValue());
                                                                             carteira.Salvar();
                                                                             campoQuantidade.setText("");
                                                                         } else if (quantidadeVendida > carteira.getETH()) {
@@ -451,6 +462,8 @@ public class VenderFragment extends Fragment {
                                                                             saldoNovo = quantidadeVendida * retornoDouble;
                                                                             carteira.setSaldo(carteira.getSaldo() + saldoNovo);
                                                                             carteira.setSLP(carteira.getSLP() - quantidadeVendida);
+                                                                            BigDecimal bd = new BigDecimal(carteira.getSaldo()).setScale(3, RoundingMode.HALF_EVEN);
+                                                                            carteira.setSaldo(bd.doubleValue());
                                                                             carteira.Salvar();
                                                                             campoQuantidade.setText("");
                                                                         } else if (quantidadeVendida > carteira.getSLP()) {
@@ -462,6 +475,8 @@ public class VenderFragment extends Fragment {
                                                                             saldoNovo = quantidadeVendida * retornoDouble;
                                                                             carteira.setSaldo(carteira.getSaldo() + saldoNovo);
                                                                             carteira.setSOL(carteira.getSOL() - quantidadeVendida);
+                                                                            BigDecimal bd = new BigDecimal(carteira.getSaldo()).setScale(3, RoundingMode.HALF_EVEN);
+                                                                            carteira.setSaldo(bd.doubleValue());
                                                                             carteira.Salvar();
                                                                             campoQuantidade.setText("");
                                                                         } else if (quantidadeVendida > carteira.getSOL()) {
@@ -473,6 +488,8 @@ public class VenderFragment extends Fragment {
                                                                             saldoNovo = quantidadeVendida * retornoDouble;
                                                                             carteira.setSaldo(carteira.getSaldo() + saldoNovo);
                                                                             carteira.setMPL(carteira.getMPL() - quantidadeVendida);
+                                                                            BigDecimal bd = new BigDecimal(carteira.getSaldo()).setScale(3, RoundingMode.HALF_EVEN);
+                                                                            carteira.setSaldo(bd.doubleValue());
                                                                             carteira.Salvar();
                                                                             campoQuantidade.setText("");
                                                                         } else if (quantidadeVendida > carteira.getMPL()) {
@@ -484,6 +501,8 @@ public class VenderFragment extends Fragment {
                                                                             saldoNovo = quantidadeVendida * retornoDouble;
                                                                             carteira.setSaldo(carteira.getSaldo() + saldoNovo);
                                                                             carteira.setDOGE(carteira.getDOGE() - quantidadeVendida);
+                                                                            BigDecimal bd = new BigDecimal(carteira.getSaldo()).setScale(3, RoundingMode.HALF_EVEN);
+                                                                            carteira.setSaldo(bd.doubleValue());
                                                                             carteira.Salvar();
                                                                             campoQuantidade.setText("");
                                                                         } else if (quantidadeVendida > carteira.getDOGE()) {
@@ -495,6 +514,8 @@ public class VenderFragment extends Fragment {
                                                                             saldoNovo = quantidadeVendida * retornoDouble;
                                                                             carteira.setSaldo(carteira.getSaldo() + saldoNovo);
                                                                             carteira.setAXS(carteira.getAXS() - quantidadeVendida);
+                                                                            BigDecimal bd = new BigDecimal(carteira.getSaldo()).setScale(3, RoundingMode.HALF_EVEN);
+                                                                            carteira.setSaldo(bd.doubleValue());
                                                                             carteira.Salvar();
                                                                             campoQuantidade.setText("");
                                                                         } else if (quantidadeVendida > carteira.getAXS()) {
@@ -506,6 +527,8 @@ public class VenderFragment extends Fragment {
                                                                             saldoNovo = quantidadeVendida * retornoDouble;
                                                                             carteira.setSaldo(carteira.getSaldo() + saldoNovo);
                                                                             carteira.setAPE(carteira.getAPE() - quantidadeVendida);
+                                                                            BigDecimal bd = new BigDecimal(carteira.getSaldo()).setScale(3, RoundingMode.HALF_EVEN);
+                                                                            carteira.setSaldo(bd.doubleValue());
                                                                             carteira.Salvar();
                                                                             campoQuantidade.setText("");
                                                                         } else if (quantidadeVendida > carteira.getAPE()) {
@@ -517,6 +540,8 @@ public class VenderFragment extends Fragment {
                                                                             saldoNovo = quantidadeVendida * retornoDouble;
                                                                             carteira.setSaldo(carteira.getSaldo() + saldoNovo);
                                                                             carteira.setADA(carteira.getADA() - quantidadeVendida);
+                                                                            BigDecimal bd = new BigDecimal(carteira.getSaldo()).setScale(3, RoundingMode.HALF_EVEN);
+                                                                            carteira.setSaldo(bd.doubleValue());
                                                                             carteira.Salvar();
                                                                             campoQuantidade.setText("");
                                                                         } else if (quantidadeVendida > carteira.getADA()) {
@@ -528,6 +553,8 @@ public class VenderFragment extends Fragment {
                                                                             saldoNovo = quantidadeVendida * retornoDouble;
                                                                             carteira.setSaldo(carteira.getSaldo() + saldoNovo);
                                                                             carteira.setLTC(carteira.getLTC() - quantidadeVendida);
+                                                                            BigDecimal bd = new BigDecimal(carteira.getSaldo()).setScale(3, RoundingMode.HALF_EVEN);
+                                                                            carteira.setSaldo(bd.doubleValue());
                                                                             carteira.Salvar();
                                                                             campoQuantidade.setText("");
                                                                         } else if (quantidadeVendida > carteira.getLTC()) {
@@ -539,6 +566,8 @@ public class VenderFragment extends Fragment {
                                                                             saldoNovo = quantidadeVendida * retornoDouble;
                                                                             carteira.setSaldo(carteira.getSaldo() + saldoNovo);
                                                                             carteira.setSHIB(carteira.getSHIB() - quantidadeVendida);
+                                                                            BigDecimal bd = new BigDecimal(carteira.getSaldo()).setScale(3, RoundingMode.HALF_EVEN);
+                                                                            carteira.setSaldo(bd.doubleValue());
                                                                             carteira.Salvar();
                                                                             campoQuantidade.setText("");
                                                                         } else if (quantidadeVendida > carteira.getSHIB()) {
@@ -550,6 +579,8 @@ public class VenderFragment extends Fragment {
                                                                             saldoNovo = quantidadeVendida * retornoDouble;
                                                                             carteira.setSaldo(carteira.getSaldo() + saldoNovo);
                                                                             carteira.setTRB(carteira.getTRB() - quantidadeVendida);
+                                                                            BigDecimal bd = new BigDecimal(carteira.getSaldo()).setScale(3, RoundingMode.HALF_EVEN);
+                                                                            carteira.setSaldo(bd.doubleValue());
                                                                             carteira.Salvar();
                                                                             campoQuantidade.setText("");
                                                                         } else if (quantidadeVendida > carteira.getTRB()) {
@@ -561,6 +592,8 @@ public class VenderFragment extends Fragment {
                                                                             saldoNovo = quantidadeVendida * retornoDouble;
                                                                             carteira.setSaldo(carteira.getSaldo() + saldoNovo);
                                                                             carteira.setXRP(carteira.getXRP() - quantidadeVendida);
+                                                                            BigDecimal bd = new BigDecimal(carteira.getSaldo()).setScale(3, RoundingMode.HALF_EVEN);
+                                                                            carteira.setSaldo(bd.doubleValue());
                                                                             carteira.Salvar();
                                                                             campoQuantidade.setText("");
                                                                         } else if (quantidadeVendida > carteira.getXRP()) {
@@ -572,6 +605,8 @@ public class VenderFragment extends Fragment {
                                                                             saldoNovo = quantidadeVendida * retornoDouble;
                                                                             carteira.setSaldo(carteira.getSaldo() + saldoNovo);
                                                                             carteira.setXTZ(carteira.getXTZ() - quantidadeVendida);
+                                                                            BigDecimal bd = new BigDecimal(carteira.getSaldo()).setScale(3, RoundingMode.HALF_EVEN);
+                                                                            carteira.setSaldo(bd.doubleValue());
                                                                             carteira.Salvar();
                                                                             campoQuantidade.setText("");
                                                                         } else if (quantidadeVendida > carteira.getXTZ()) {
@@ -583,6 +618,8 @@ public class VenderFragment extends Fragment {
                                                                             saldoNovo = quantidadeVendida * retornoDouble;
                                                                             carteira.setSaldo(carteira.getSaldo() + saldoNovo);
                                                                             carteira.setUSDC(carteira.getUSDC() - quantidadeVendida);
+                                                                            BigDecimal bd = new BigDecimal(carteira.getSaldo()).setScale(3, RoundingMode.HALF_EVEN);
+                                                                            carteira.setSaldo(bd.doubleValue());
                                                                             carteira.Salvar();
                                                                             campoQuantidade.setText("");
                                                                         } else if (quantidadeVendida > carteira.getUSDC()) {
@@ -661,6 +698,8 @@ public class VenderFragment extends Fragment {
                                                                 saldoNovo = carteira.getBTC() * retornoDouble;
                                                                 carteira.setSaldo(carteira.getSaldo() + saldoNovo);
                                                                 carteira.setBTC(carteira.getBTC() - carteira.getBTC());
+                                                                BigDecimal bd = new BigDecimal(carteira.getSaldo()).setScale(3, RoundingMode.HALF_EVEN);
+                                                                carteira.setSaldo(bd.doubleValue());
                                                                 carteira.Salvar();
                                                                 campoQuantidade.setText("");
                                                                 Toast.makeText(getActivity(),"Vendido com sucesso, cheque seu novo saldo",Toast.LENGTH_SHORT).show();
@@ -673,6 +712,8 @@ public class VenderFragment extends Fragment {
                                                                 saldoNovo = carteira.getETH() * retornoDouble;
                                                                 carteira.setSaldo(carteira.getSaldo() + saldoNovo);
                                                                 carteira.setETH(carteira.getETH() - carteira.getETH());
+                                                                BigDecimal bd = new BigDecimal(carteira.getSaldo()).setScale(3, RoundingMode.HALF_EVEN);
+                                                                carteira.setSaldo(bd.doubleValue());
                                                                 carteira.Salvar();
                                                                 campoQuantidade.setText("");
                                                                 Toast.makeText(getActivity(),"Vendido com sucesso, cheque seu novo saldo",Toast.LENGTH_SHORT).show();
@@ -685,6 +726,8 @@ public class VenderFragment extends Fragment {
                                                                 saldoNovo = carteira.getSLP() * retornoDouble;
                                                                 carteira.setSaldo(carteira.getSaldo() + saldoNovo);
                                                                 carteira.setSLP(carteira.getSLP() - carteira.getSLP());
+                                                                BigDecimal bd = new BigDecimal(carteira.getSaldo()).setScale(3, RoundingMode.HALF_EVEN);
+                                                                carteira.setSaldo(bd.doubleValue());
                                                                 carteira.Salvar();
                                                                 campoQuantidade.setText("");
                                                                 Toast.makeText(getActivity(),"Vendido com sucesso, cheque seu novo saldo",Toast.LENGTH_SHORT).show();
@@ -697,6 +740,8 @@ public class VenderFragment extends Fragment {
                                                                 saldoNovo = carteira.getSOL() * retornoDouble;
                                                                 carteira.setSaldo(carteira.getSaldo() + saldoNovo);
                                                                 carteira.setSOL(carteira.getSOL() -carteira.getSOL());
+                                                                BigDecimal bd = new BigDecimal(carteira.getSaldo()).setScale(3, RoundingMode.HALF_EVEN);
+                                                                carteira.setSaldo(bd.doubleValue());
                                                                 carteira.Salvar();
                                                                 campoQuantidade.setText("");
                                                                 Toast.makeText(getActivity(),"Vendido com sucesso, cheque seu novo saldo",Toast.LENGTH_SHORT).show();
@@ -709,6 +754,8 @@ public class VenderFragment extends Fragment {
                                                                 saldoNovo = carteira.getMPL() * retornoDouble;
                                                                 carteira.setSaldo(carteira.getSaldo() + saldoNovo);
                                                                 carteira.setMPL(carteira.getMPL() -carteira.getMPL());
+                                                                BigDecimal bd = new BigDecimal(carteira.getSaldo()).setScale(3, RoundingMode.HALF_EVEN);
+                                                                carteira.setSaldo(bd.doubleValue());
                                                                 carteira.Salvar();
                                                                 campoQuantidade.setText("");
                                                                 Toast.makeText(getActivity(),"Vendido com sucesso, cheque seu novo saldo",Toast.LENGTH_SHORT).show();
@@ -721,6 +768,8 @@ public class VenderFragment extends Fragment {
                                                                 saldoNovo = carteira.getDOGE() * retornoDouble;
                                                                 carteira.setSaldo(carteira.getSaldo() + saldoNovo);
                                                                 carteira.setDOGE(carteira.getDOGE() - carteira.getDOGE());
+                                                                BigDecimal bd = new BigDecimal(carteira.getSaldo()).setScale(3, RoundingMode.HALF_EVEN);
+                                                                carteira.setSaldo(bd.doubleValue());
                                                                 carteira.Salvar();
                                                                 campoQuantidade.setText("");
                                                                 Toast.makeText(getActivity(),"Vendido com sucesso, cheque seu novo saldo",Toast.LENGTH_SHORT).show();
@@ -733,6 +782,8 @@ public class VenderFragment extends Fragment {
                                                                 saldoNovo = carteira.getAXS() * retornoDouble;
                                                                 carteira.setSaldo(carteira.getSaldo() + saldoNovo);
                                                                 carteira.setAXS(carteira.getAXS() -carteira.getAXS());
+                                                                BigDecimal bd = new BigDecimal(carteira.getSaldo()).setScale(3, RoundingMode.HALF_EVEN);
+                                                                carteira.setSaldo(bd.doubleValue());
                                                                 carteira.Salvar();
                                                                 campoQuantidade.setText("");
                                                                 Toast.makeText(getActivity(),"Vendido com sucesso, cheque seu novo saldo",Toast.LENGTH_SHORT).show();
@@ -745,6 +796,8 @@ public class VenderFragment extends Fragment {
                                                                 saldoNovo = carteira.getAPE() * retornoDouble;
                                                                 carteira.setSaldo(carteira.getSaldo() + saldoNovo);
                                                                 carteira.setAPE(carteira.getAPE() -carteira.getAPE());
+                                                                BigDecimal bd = new BigDecimal(carteira.getSaldo()).setScale(3, RoundingMode.HALF_EVEN);
+                                                                carteira.setSaldo(bd.doubleValue());
                                                                 carteira.Salvar();
                                                                 campoQuantidade.setText("");
                                                                 Toast.makeText(getActivity(),"Vendido com sucesso, cheque seu novo saldo",Toast.LENGTH_SHORT).show();
@@ -757,6 +810,8 @@ public class VenderFragment extends Fragment {
                                                                 saldoNovo = carteira.getADA() * retornoDouble;
                                                                 carteira.setSaldo(carteira.getSaldo() + saldoNovo);
                                                                 carteira.setADA(carteira.getADA() -carteira.getADA());
+                                                                BigDecimal bd = new BigDecimal(carteira.getSaldo()).setScale(3, RoundingMode.HALF_EVEN);
+                                                                carteira.setSaldo(bd.doubleValue());
                                                                 carteira.Salvar();
                                                                 campoQuantidade.setText("");
                                                                 Toast.makeText(getActivity(),"Vendido com sucesso, cheque seu novo saldo",Toast.LENGTH_SHORT).show();
@@ -769,6 +824,8 @@ public class VenderFragment extends Fragment {
                                                                 saldoNovo = carteira.getLTC() * retornoDouble;
                                                                 carteira.setSaldo(carteira.getSaldo() + saldoNovo);
                                                                 carteira.setLTC(carteira.getLTC() -carteira.getLTC());
+                                                                BigDecimal bd = new BigDecimal(carteira.getSaldo()).setScale(3, RoundingMode.HALF_EVEN);
+                                                                carteira.setSaldo(bd.doubleValue());
                                                                 carteira.Salvar();
                                                                 campoQuantidade.setText("");
                                                                 Toast.makeText(getActivity(),"Vendido com sucesso, cheque seu novo saldo",Toast.LENGTH_SHORT).show();
@@ -781,6 +838,8 @@ public class VenderFragment extends Fragment {
                                                                 saldoNovo = carteira.getSHIB() * retornoDouble;
                                                                 carteira.setSaldo(carteira.getSaldo() + saldoNovo);
                                                                 carteira.setSHIB(carteira.getSHIB() -carteira.getSHIB());
+                                                                BigDecimal bd = new BigDecimal(carteira.getSaldo()).setScale(3, RoundingMode.HALF_EVEN);
+                                                                carteira.setSaldo(bd.doubleValue());
                                                                 carteira.Salvar();
                                                                 campoQuantidade.setText("");
                                                                 Toast.makeText(getActivity(),"Vendido com sucesso, cheque seu novo saldo",Toast.LENGTH_SHORT).show();
@@ -793,6 +852,8 @@ public class VenderFragment extends Fragment {
                                                                 saldoNovo = carteira.getTRB() * retornoDouble;
                                                                 carteira.setSaldo(carteira.getSaldo() + saldoNovo);
                                                                 carteira.setTRB(carteira.getTRB() - carteira.getTRB());
+                                                                BigDecimal bd = new BigDecimal(carteira.getSaldo()).setScale(3, RoundingMode.HALF_EVEN);
+                                                                carteira.setSaldo(bd.doubleValue());
                                                                 carteira.Salvar();
                                                                 campoQuantidade.setText("");
                                                                 Toast.makeText(getActivity(),"Vendido com sucesso, cheque seu novo saldo",Toast.LENGTH_SHORT).show();
@@ -805,6 +866,8 @@ public class VenderFragment extends Fragment {
                                                                 saldoNovo = carteira.getXRP() * retornoDouble;
                                                                 carteira.setSaldo(carteira.getSaldo() + saldoNovo);
                                                                 carteira.setXRP(carteira.getXRP() - carteira.getXRP());
+                                                                BigDecimal bd = new BigDecimal(carteira.getSaldo()).setScale(3, RoundingMode.HALF_EVEN);
+                                                                carteira.setSaldo(bd.doubleValue());
                                                                 carteira.Salvar();
                                                                 campoQuantidade.setText("");
                                                                 Toast.makeText(getActivity(),"Vendido com sucesso, cheque seu novo saldo",Toast.LENGTH_SHORT).show();
@@ -817,6 +880,8 @@ public class VenderFragment extends Fragment {
                                                                 saldoNovo = carteira.getXTZ() * retornoDouble;
                                                                 carteira.setSaldo(carteira.getSaldo() + saldoNovo);
                                                                 carteira.setXTZ(carteira.getXTZ() - carteira.getXTZ());
+                                                                BigDecimal bd = new BigDecimal(carteira.getSaldo()).setScale(3, RoundingMode.HALF_EVEN);
+                                                                carteira.setSaldo(bd.doubleValue());
                                                                 carteira.Salvar();
                                                                 campoQuantidade.setText("");
                                                                 Toast.makeText(getActivity(),"Vendido com sucesso, cheque seu novo saldo",Toast.LENGTH_SHORT).show();
@@ -829,6 +894,8 @@ public class VenderFragment extends Fragment {
                                                                 saldoNovo = carteira.getUSDC() * retornoDouble;
                                                                 carteira.setSaldo(carteira.getSaldo() + saldoNovo);
                                                                 carteira.setUSDC(carteira.getUSDC() - carteira.getUSDC());
+                                                                BigDecimal bd = new BigDecimal(carteira.getSaldo()).setScale(3, RoundingMode.HALF_EVEN);
+                                                                carteira.setSaldo(bd.doubleValue());
                                                                 carteira.Salvar();
                                                                 campoQuantidade.setText("");
                                                                 Toast.makeText(getActivity(),"Vendido com sucesso, cheque seu novo saldo",Toast.LENGTH_SHORT).show();

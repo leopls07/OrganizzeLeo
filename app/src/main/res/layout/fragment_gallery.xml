@@ -101,17 +101,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" />
 
-    <EditText
+    <com.tobiasschuerg.prefixsuffix.PrefixSuffixEditText
         android:id="@+id/editQuantidadeCompra"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="33dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="33dp"
-        android:drawableLeft="@drawable/rs"
         android:ems="10"
-        android:hint="Quanto deseja comprar?"
+        android:hint="Quantidade desejada"
         android:inputType="numberDecimal"
+        app:prefix="R$: "
         android:maxLength="7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

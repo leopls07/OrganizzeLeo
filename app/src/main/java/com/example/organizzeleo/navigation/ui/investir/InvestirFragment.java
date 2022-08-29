@@ -33,6 +33,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
@@ -313,6 +315,8 @@ public class InvestirFragment extends Fragment {
                                                                             Double saldoNovo = carteira.getSaldo() - quantiaDouble;
                                                                             textoSaldo.setText("R$" + carteira.getSaldo().toString());
                                                                             carteira.setSaldo(saldoNovo);
+                                                                            BigDecimal bd = new BigDecimal(carteira.getSaldo()).setScale(3, RoundingMode.HALF_EVEN);
+                                                                            carteira.setSaldo(bd.doubleValue());
                                                                             carteira.Salvar();
 
 

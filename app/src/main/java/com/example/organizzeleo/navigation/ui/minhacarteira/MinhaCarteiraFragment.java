@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -37,7 +38,7 @@ public class MinhaCarteiraFragment extends Fragment {
 
 
     private TextView textBTC, textETH, textSLP, textSOL, textMPL, textDOGE, textAXS, textAPE, textADA, textLTC, textSHIB, textTRB, textXRP, textXTZ, textUSDC;
-    private TextInputEditText campoSaldo;
+    private EditText campoSaldo;
     private TextView textoSaldo, textoNome;
     private Button botaoSalvar;
     private DatabaseReference firebaseRef = ConfiguracaoFirebase.getFirebaseDatabase();
@@ -129,7 +130,7 @@ public class MinhaCarteiraFragment extends Fragment {
 
 
                                     textoSaldo.setText("R$" + carteira.getSaldo().toString());
-                                    if (campoSaldo.getText().toString().equals("")) {
+                                    if (campoSaldo.getText().toString().equals("") ) {
                                     } else{
                                     carteira.setSaldo(Double.parseDouble(campoSaldo.getText().toString()));
                                     carteira.Salvar();
